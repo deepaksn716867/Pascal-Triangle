@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>patt</title>
+<script>
+function funn()
+{
+	var a=document.z.t.value;
+	var mat=new Array();
+	for(var i=0;i<a;i++)
+	{
+		mat[i]=new Array();
+	}
+	for(var k=0; k<a;k++)
+	{
+		for(var l=0;l<a;l++)
+		{
+			mat[k][l]="&nbsp;";
+		}
+	}
+	for(var m=0;m<a;m++)
+	{
+		for(var n=0;n<=m;n++)
+		{
+			if(n==0||m==n)
+			{
+				mat[m][n]=1;
+			}
+			else
+			{
+				mat[m][n]=mat[m-1][n-1]+mat[m-1][n];
+			}
+		}
+	}
+	var tab="<table border=1 width=20% height=20%>"
+	for(var q=0;q<a;q++)
+	{
+		tab+="<tr>";
+		for(var w=0;w<a;w++)
+		{
+			tab+="<td>"+mat[q][w]+"</td>";
+		}
+		tab+="</tr>";
+	}
+	tab+="</table>";
+	document.write(tab);
+}
+</script>
+
+</head>
+<body>
+<form name="z">
+enter the number of values:<input type="text" name="t">
+<button type="button" onclick="funn()">try</button>
+</body>
+</html>
